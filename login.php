@@ -8,7 +8,7 @@ if (!empty($_POST['login'])) {
 	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 	// Preparando statement 
-	$sql = "SELECT * FROM user INNER JOIN tabela_estabelecimento ON tabela_estabelecimento.id = user.id_estabelecimento WHERE nmuser = ? AND password = ?";
+	$sql = "SELECT * FROM user INNER JOIN estabelecimento ON estabelecimento.id = user.estabelecimento_id WHERE nmuser = ? AND password = ?";
 	
 	
 	$q = $pdo->prepare($sql);
@@ -16,7 +16,7 @@ if (!empty($_POST['login'])) {
 
 	// Obter linha consultada 
 	$obj = $q->fetchObject(); 
-	print_r($obj);die;
+	
 	
 }
 
